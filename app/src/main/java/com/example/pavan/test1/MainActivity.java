@@ -3,6 +3,9 @@ package com.example.pavan.test1;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.view.menu.MenuItemWrapperICS;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -27,12 +30,13 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private TextView txt;
+    private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ListView listView = (ListView)findViewById(R.id.movies);
+        listView = (ListView)findViewById(R.id.movies);
 
                // new JSONTask().execute("https://jsonparsingdemo-cec5b.firebaseapp.com/jsonData/moviesDemoItem.txt");
     }
@@ -105,7 +109,23 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(List<MovieModel> s) {
             super.onPostExecute(s);
 
+
         }
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu_activity, menu);
+        return true;
+    }
+
+    @Override
+    public  boolean onOptionsItemSelected(MenuItem item){
+        int id= item.getItemId();
+        if (id==R.id.actionsetting) {
+            new JSONTask().execute("https://jsonparsingdemo-cec5b.firebaseapp.com/jsonData/moviesData.txt");
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

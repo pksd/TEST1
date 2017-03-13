@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_setting"
+        android:orderInCategory="100"
+        android:title="Refresh"
+        app:showAsAction="always"
+        android:icon="@mipmap/ic_launcher"/>
+    <item
+        android:id="@+id/action_test"
+        android:orderInCategory="100"
+        android:title="SimplyClick"
+        app:showAsAction="never"
+        android:icon="@mipmap/ic_launcher"/>
+    <item
+        android:id="@+id/action_test2"
+        android:orderInCategory="100"
+        android:title="Click it!!!"
+        app:showAsAction="never"
+        android:icon="@mipmap/ic_launcher"/>
+</menu>
